@@ -29,7 +29,7 @@ export default function CardInfo() {
                 <p className= "Paragraph-Info">
                     Connectez-vous <br/>
                     ou <br/> créez
-                    vote compte <a href="https://localhost:8000/login" style={{fontWeight: 'bold', color: 'inherit', textDecoration: 'none'}}>Ici</a>
+                    vote compte <a href="https://mediatheque-ecf.herokuapp.com/login" style={{fontWeight: 'bold', color: 'inherit', textDecoration: 'none'}}>Ici</a>
                 </p>
             </Container>
         </Container>
