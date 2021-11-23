@@ -1,0 +1,248 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {% block stylesTwig %}
+        <style>
+            .body{
+                margin: 0;
+                padding: 10px;
+                min-height: calc(100vh - 260px);
+            }
+            .container{
+                background-color: black;
+                justify-content: center;
+                align-items: center;
+                padding: 20px;
+                min-height: 680px;
+            }
+            .subContainer{
+                background-color: black;
+            }
+            .formContainer{
+                display: flex;
+                background-color: black;
+                justify-content: center;
+                align-items: center;
+            }
+            .navbar{
+                min-height: 60px;
+            }
+            .ToggleIcon{
+                padding: 5px;
+                border-radius: 50%;
+                border: solid 1px white;
+            }
+            .Link-Collapse{
+                text-decoration: none;
+                margin-right: 25px;
+                font-size: 20px;
+                text-align: center;
+                color: #7ACBCD;
+                margin-top: 15px;
+                margin-bottom: 15px;
+                font-weight: 500;
+                transition: 0.5s;
+            }
+            .Link-Collapse:hover {
+                color: #7ACBCD;
+                font-size: 18px;
+                transition: 0.5s;
+            }
+            .Link-Collapse:focus {
+                color: #7ACBCD;
+            }
+            .title{
+                color: #7ACBCD;
+                display: inline-flex;
+                margin: 0;
+                padding: 0;
+                font-size: 34px;
+            }
+            .name {
+                color: #7ACBCD;
+            }
+            a {
+                text-decoration: none;
+            }
+            .LabelForm{
+                display: block;
+            }
+            #registration_form_prenom, #registration_form_nom, #registration_form_adresse_postal, #registration_form_email, #registration_form_plainPassword{
+                border-radius: 20px;
+                margin-bottom: 10px;
+                width: 100%;
+            }
+            #registration_form_date_naissance_month, #registration_form_date_naissance_day, #registration_form_date_naissance_year {
+                border-radius: 20px;
+                margin-bottom: 10px;
+                margin-right: 10px;
+            }
+            #registration_form_agreeTerms{
+                margin-left: 10px;
+            }
+            .LogoImage {
+                height: 120px;
+                width: 120px;
+                border-radius: 100%;
+                margin-top: 20px;
+                margin-bottom: 20px;
+                border: solid 2px #7ACBCD;
+            }
+            .errorMessage{
+                color: red;
+            }
+            .Button-Register{
+                margin-top: 20px;
+                color: white;
+                border: solid 2px #7ACBCD;
+                background-color: black;
+                padding: 5px;
+                border-radius: 15px;
+                transition: 0.5s;
+            }
+            .Button-Register:hover {
+                transition: 0.5s;
+                margin-left: 10px;
+                border: solid 2px white;
+                color: black;
+                background-color: #7ACBCD;
+                border-radius: 25px;
+            }
+            .ChangeAuth{
+                margin-top: 20px;
+                color: white;
+            }
+            .LinkAuth{
+                color: #7ACBCD;
+                transition: 0.5s;
+            }
+            .LinkAuth:hover{
+                transition: 0.5s;
+                color: #7ACBCD;
+            }
+            .fixTop{
+                margin-top: 150px;
+            }
+            @media (min-width: 1024px) and (max-width: 3000px) {
+                .container{
+                    margin-top: 80px;
+                    margin-bottom: 80px;
+                }
+            }
+            @media (min-width: 776px) and (max-width: 1024px) {
+                .container{
+                    margin-top: 40px;
+                    margin-bottom: 40px;
+                }
+            }
+            @media (max-width: 991px) {
+                .Link-Collapse{
+                    color: white;
+                    text-align: center;
+                }
+            }
+            @media (max-width: 600px) {
+                .title{
+                    font-size: 28px;
+                    margin-left: 15px;
+                }
+                .body{
+                    min-height: calc(100vh - 160px);
+                }
+                .fixTop{
+                    margin-top: 50px;
+                }
+            }
+            @media (max-width: 475px) {
+                .title{
+                    font-size: 18px;
+                }
+            }
+            @media (max-width: 375px) {
+                .title{
+                    font-size: 24px;
+                    text-align: center;
+                    margin-left: 15px;
+                }
+            }
+            @media (max-width: 312px) {
+                .title{
+                    font-size: 18px;
+                }
+            }
+        </style>
+    {% endblock stylesTwig %}
+    {% block navHeader %}
+        <nav class="navbar navbar-expand-lg Header-Container fixed-top">
+            <div class="container-fluid">
+                <img src="{{ asset('build/images/Logo.38d6610a.jpeg') }}" class="Logo" alt="Logo" >
+                <h1 class="navbar-brand title">La Chapelle-Curreaux</h1>
+                <button class="navbar-toggler Button-Toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fas fa-bars ToggleIcon"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        {% if app.user %}
+                            <li class="nav-item">
+                                <a class="nav-link active Link-Collapse" href="{{ path('catalogue') }}">Catalogue</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link Link-Collapse" href="{{ path('borrow') }}">Emprunts</a>
+                            </li>
+                        {% endif %}
+                        {%  if is_granted('ROLE_EMPLOYEE') %}
+                            <li class="nav-item">
+                                <a class="nav-link Link-Collapse" href="{{ path('admin') }}" target="_blank">Administration</a>
+                            </li>
+                        {%  endif %}
+
+                        {% if not app.user %}
+                            <li class="nav-item">
+                                <a class="nav-link Link-Collapse" href="{{ path('app_register') }}">S'enregistrer</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link Link-Collapse" href="{{ path('app_login') }}">Se connecter</a>
+                            </li>
+                        {% endif %}
+
+                        {% if app.user %}
+                            <li class="nav-item">
+                                <a class="nav-link Link-Collapse" href="{{ path('app_logout') }}">Logout</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    {% endblock navHeader %}
+
+    <div class="body fixTop">
+        <div class="row" >
+            <div class="col-md d-flex flex-row flex-wrap justify-content-center">
+                {% for book in books %}
+                    <div class="card bg-dark m-2" style="overflow:hidden;width: 288px; min-width: 288px; color: white">
+                        <img src="{{ book.cover }}" class="card-img-top mx-auto shadow rounded mt-2"  alt="cover image" style="width:220px;height:300px">
+                        <div class="card-body">
+                            <h5 class="card-title text-white">{{ book.title }}</h5>
+                            <p class="card-text description">{{ book.description }}</p>
+                            <div style="display: flex; align-items: center; justify-content: space-between">
+                                <p class="bookGenre">{{ book.genre }}</p>
+                                <a href="{{ path('editBook',{id: book.id }) }}" class="Button-Ok text-white">Détails</a>
+                            </div>
+                            <h4 class="ribbon shadow-lg text-center mt-4"
+                                style="display: {{ book.isReserved ? 'block' : 'none' }};color: #7ACBCD; background-color: black; border-radius: 50px; border: solid 2px #7ACBCD">
+                                Réservé
+                            </h4>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    {% block Footer %}
+        <div class="Footer">
+            <h6>© Chapelle-Curreaux</h6>
+        </div>
+    {% endblock Footer %}
+{% endblock %}
