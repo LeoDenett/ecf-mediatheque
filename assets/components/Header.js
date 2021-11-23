@@ -20,7 +20,7 @@ function Header() {
                     <Nav.Link className="Link-Collapse" ><Link to="/">Accueil</Link></Nav.Link>
                     <Nav.Link className="Link-Collapse" ><Link to="/info">Info</Link></Nav.Link>
                     <Nav.Link className="Link-Collapse" ><Link to="/contact">Contact</Link></Nav.Link>
-                    <a className="Link-Collapse Link-Auth" href="https://mediatheque-ecf.herokuapp.com//login"><FaUserAlt/></a>
+                    <a className="Link-Collapse Link-Auth" href="https://mediatheque-ecf.herokuapp.com/login"><FaUserAlt/></a>
                 </Nav>
             </Navbar.Collapse>
         </Navbar>
