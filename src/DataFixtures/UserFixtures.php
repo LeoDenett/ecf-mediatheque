@@ -19,7 +19,7 @@ class UserFixtures extends Fixture
         $user->setPassword('$2y$10$iVRaSpQhZw9CdacLxmIelefyt43Ly27yNDUarw9/1YUIn5Z1uLXZi');//admin
         $user->setPrenom('Leonel');
         $user->setNom('Denett');
-        $user->setDateNaissance(new \DateTime('09-01-1998'));
+        $user->setDateNaissance(new \DateTime('01-09-1998'));
         $user->setAdressePostal('7 Rue Albert du Mun 29400');
         $user->setUserValidated(true);
         $user->setRoles(['ROLE_ADMIN']);
@@ -32,7 +32,7 @@ class UserFixtures extends Fixture
         $user->setPassword('$2y$10$4nJInvwr/f4IPsDGPfZ0..Je2biNJ8F2985TaocCjnYj1wJZxGN.6');//test
         $user->setPrenom('Raphaelle');
         $user->setNom('Poti');
-        $user->setDateNaissance(new \DateTime('12-28-1997'));
+        $user->setDateNaissance(new \DateTime('28-12-1997'));
         $user->setAdressePostal('7 Rue Albert du Mun 29400');
         $user->setUserValidated(true);
         $user->setRoles(['ROLE_EMPLOYEE']);
@@ -46,7 +46,7 @@ class UserFixtures extends Fixture
         $user->setPassword('$2y$10$4nJInvwr/f4IPsDGPfZ0..Je2biNJ8F2985TaocCjnYj1wJZxGN.6');//test
         $user->setPrenom('Dieguito');
         $user->setNom('Maradona');
-        $user->setDateNaissance(new \DateTime('10-30-1960'));
+        $user->setDateNaissance(new \DateTime('30-10-1960'));
         $user->setAdressePostal('Ayacucho 1916');
         $user->setUserValidated(true);
         $user->setRoles(['ROLE_USER']);
@@ -60,7 +60,7 @@ class UserFixtures extends Fixture
         $user->setPassword('$2y$10$4nJInvwr/f4IPsDGPfZ0..Je2biNJ8F2985TaocCjnYj1wJZxGN.6');//test
         $user->setPrenom('Lio');
         $user->setNom('Messi');
-        $user->setDateNaissance(new \DateTime('06-24-1987'));
+        $user->setDateNaissance(new \DateTime('24-06-1987'));
         $user->setAdressePostal('Conquista 2021');
         $user->setUserValidated(false);
         $user->setRoles(['ROLE_USER']);
