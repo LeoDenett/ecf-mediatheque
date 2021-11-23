@@ -16,8 +16,8 @@
         "build": "encore production --progress"
     },
     "engines": {
-        "node": "v14.17.5.*",
-        "npm": "7.24.2.*"
+        "node": "v14.17.5",
+        "npm": "7.24.2"
     },
     "dependencies": {
         "@babel/plugin-proposal-class-properties": "^7.16.0",
