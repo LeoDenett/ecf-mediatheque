@@ -16,7 +16,7 @@ class UserFixtures extends Fixture
         //ADMIN
         $user = new User();
         $user->setEmail('leonel@leonel.com');
-        $user->setPassword('$2y$10$iVRaSpQhZw9CdacLxmIelefyt43Ly27yNDUarw9/1YUIn5Z1uLXZi');//admin
+        $user->setPassword('$2y$13$haE1clo/2tH3USOx5bq1DeZOW/ujJHJf8ZqczInv.R3CLA6mR/RSC');//leoleo
         $user->setPrenom('Leonel');
         $user->setNom('Denett');
         $user->setDateNaissance(new \DateTime('01-09-1998'));
@@ -26,10 +26,11 @@ class UserFixtures extends Fixture
 
         $manager->persist($user);
 
+
         //EMPLOYEE
         $user = new User();
         $user->setEmail('raphi@raphi.com');
-        $user->setPassword('$2y$10$4nJInvwr/f4IPsDGPfZ0..Je2biNJ8F2985TaocCjnYj1wJZxGN.6');//test
+        $user->setPassword('$2y$13$6rgATtgFzBf/G5YK4zzZBu0hETEzwSka1lgX0ctRdQEDxUot1cFZK');//raphiraphi
         $user->setPrenom('Raphaelle');
         $user->setNom('Poti');
         $user->setDateNaissance(new \DateTime('28-12-1997'));
@@ -40,10 +41,11 @@ class UserFixtures extends Fixture
         $manager->persist($user);
 
 
+
         //USER (validated)
         $user = new User();
         $user->setEmail('dieguito@dieguito.com');
-        $user->setPassword('$2y$10$4nJInvwr/f4IPsDGPfZ0..Je2biNJ8F2985TaocCjnYj1wJZxGN.6');//test
+        $user->setPassword('$2y$13$ZM8bEnXHlO5t3U3k6m/RMeTn.YNdCPoM8DuOD4jDvOz9Ia4495Fea');//testtest
         $user->setPrenom('Dieguito');
         $user->setNom('Maradona');
         $user->setDateNaissance(new \DateTime('30-10-1960'));
@@ -57,7 +59,7 @@ class UserFixtures extends Fixture
         //USER (No validated)
         $user = new User();
         $user->setEmail('lio@lio.fr');
-        $user->setPassword('$2y$10$4nJInvwr/f4IPsDGPfZ0..Je2biNJ8F2985TaocCjnYj1wJZxGN.6');//test
+        $user->setPassword('$2y$13$ZM8bEnXHlO5t3U3k6m/RMeTn.YNdCPoM8DuOD4jDvOz9Ia4495Fea');//testtest
         $user->setPrenom('Lio');
         $user->setNom('Messi');
         $user->setDateNaissance(new \DateTime('24-06-1987'));
